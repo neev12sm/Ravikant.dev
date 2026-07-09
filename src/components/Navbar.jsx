@@ -1,8 +1,4 @@
-
-
-
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   House,
@@ -22,6 +18,17 @@ export default function Navbar({
   setDarkMode,
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+  if (menuOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+
+  return () => {
+    document.body.style.overflow = "auto";
+  };
+}, [menuOpen]);
 
   const navItems = [
     { name: "Home", icon: House },
@@ -37,7 +44,7 @@ export default function Navbar({
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center"
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-30 w-full flex justify-center"
     >
       <nav
         className={`
@@ -207,58 +214,70 @@ export default function Navbar({
         </div>
 
         {/* Mobile Menu */}
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            className={`
-              lg:hidden
-              mt-4
-              rounded-3xl
-              backdrop-blur-xl
-              p-5
-              ${
-                darkMode
-                  ? `
-                    border border-white/10
-                    bg-black/50
-                  `
-                  : `
-                    border border-purple-400/30
-                    bg-purple-900/40
-                  `
-              }
-            `}
-          >
-            <ul className="flex flex-col gap-5">
-              {navItems.map((item) => {
-                const Icon = item.icon;
+       {menuOpen && (
+  <>
+    {/* Dark Overlay */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setMenuOpen(false)}
+      className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+    />
 
-                return (
-                  <li key={item.name}>
-                    <a
-                      href={`#${item.name.toLowerCase()}`}
-                      className={`
-                        flex
-                        items-center
-                        gap-3
-                        transition-all
-                        ${
-                          darkMode
-                            ? "text-gray-300 hover:text-violet-400"
-                            : "text-white hover:text-cyan-300"
-                        }
-                      `}
-                    >
-                      <Icon size={18} />
-                      {item.name}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </motion.div>
-        )}
+    {/* Sidebar */}
+    <motion.div
+      initial={{ x: "-100%" }}
+      animate={{ x: 0 }}
+      exit={{ x: "-100%" }}
+      transition={{ duration: 0.35 }}
+      className={`fixed top-0 left-0 h-screen w-[80%] max-w-[320px] z-50 lg:hidden
+      ${
+        darkMode
+          ? "bg-[#09090f]/95 border-r border-white/10"
+          : "bg-[#170028]/95 border-r border-purple-500/30"
+      }
+      backdrop-blur-2xl`}
+    >
+      <div className="flex items-center justify-between p-6 border-b border-white/10">
+        <h2 className="text-2xl font-bold text-white">
+          Ravikant
+        </h2>
+
+        <button
+          onClick={() => setMenuOpen(false)}
+          className="text-white"
+        >
+          <X size={26} />
+        </button>
+      </div>
+
+      <ul className="flex flex-col gap-7 px-8 py-10">
+        {navItems.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <li key={item.name}>
+              <a
+                href={`#${item.name.toLowerCase()}`}
+                onClick={() => setMenuOpen(false)}
+                className={`flex items-center gap-4 text-lg transition
+                ${
+                  darkMode
+                    ? "text-gray-300 hover:text-purple-400"
+                    : "text-white hover:text-cyan-300"
+                }`}
+              >
+                <Icon size={22} />
+                {item.name}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </motion.div>
+  </>
+)}
       </nav>
     </motion.header>
   );
