@@ -44,33 +44,33 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative py-32 bg-[#050816] overflow-hidden"
+      className="relative py-20 md:py-32 bg-[#050816] overflow-hidden"
     >
       {/* Background Effects */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-600/20 blur-[180px]" />
+      <div className="absolute top-0 left-0 w-[220px] h-[220px] md:w-[500px] md:h-[500px] bg-purple-600/20 blur-[120px] md:blur-[180px]" />
 
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-fuchsia-600/20 blur-[180px]" />
+      <div className="absolute bottom-0 right-0 w-[220px] h-[220px] md:w-[500px] md:h-[500px] bg-fuchsia-600/20 blur-[120px] md:blur-[180px]" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-24"
+          className="text-center mb-14 md:mb-24"
         >
-          <p className="uppercase tracking-[8px] text-purple-400 font-semibold">
+         <p className="uppercase tracking-[4px] md:tracking-[8px] text-purple-400 font-semibold text-sm md:text-base">
             EXPERIENCE
           </p>
 
-          <h2 className="text-5xl md:text-7xl font-black text-white mt-5">
+         <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mt-4">
             Professional
             <span className="block bg-gradient-to-r from-purple-400 via-fuchsia-400 to-blue-400 bg-clip-text text-transparent">
               Journey
             </span>
           </h2>
 
-          <p className="text-gray-400 max-w-3xl mx-auto mt-8 text-lg">
+          <p className="text-gray-400 max-w-2xl mx-auto mt-5 text-base md:text-lg px-2">
             My professional experience across software development,
             backend engineering and US staffing operations.
           </p>
@@ -96,7 +96,7 @@ export default function Experience() {
                 duration: 0.7,
                 delay: index * 0.2,
               }}
-              className={`relative flex items-center mb-24 ${
+              className={`relative flex items-center mb-10 md:mb-24 ${
                 index % 2 === 0
                   ? "md:justify-start"
                   : "md:justify-end"
@@ -131,19 +131,21 @@ export default function Experience() {
                   y: -10,
                   scale: 1.02,
                 }}
-                className="
-                  w-full
-                  md:w-[45%]
-                  bg-white/[0.04]
-                  backdrop-blur-xl
-                  border
-                  border-white/10
-                  rounded-[32px]
-                  p-8
-                  relative
-                  overflow-hidden
-                  group
-                "
+            className="
+w-full
+md:w-[45%]
+bg-white/[0.04]
+backdrop-blur-xl
+border
+border-white/10
+rounded-3xl
+p-5
+sm:p-6
+lg:p-8
+relative
+overflow-hidden
+group
+"
               >
                 {/* Glow */}
                 <div
@@ -167,21 +169,21 @@ export default function Experience() {
                       border
                       border-purple-500/30
                       text-purple-300
-                      text-sm
+                      text-xs sm:text-sm
                     "
                   >
                     {exp.duration}
                   </div>
 
-                  <h3 className="text-3xl font-bold text-white mt-6">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mt-5">
                     {exp.role}
                   </h3>
 
-                  <p className="text-fuchsia-400 font-semibold text-lg mt-2">
+                  <p className="text-fuchsia-400 font-semibold text-base md:text-lg mt-2">
                     {exp.company}
                   </p>
 
-                  <p className="text-gray-400 leading-8 mt-5">
+                  <p className="text-gray-400 text-sm md:text-base leading-7 md:leading-8 mt-5">
                     {exp.description}
                   </p>
 
@@ -190,16 +192,18 @@ export default function Experience() {
                     {exp.achievements.map((item, i) => (
                       <span
                         key={i}
-                        className="
-                          px-4
-                          py-2
-                          rounded-full
-                          bg-white/5
-                          border
-                          border-white/10
-                          text-sm
-                          text-gray-300
-                        "
+                    className="
+px-3
+sm:px-4
+py-2
+rounded-full
+bg-white/5
+border
+border-white/10
+text-xs
+sm:text-sm
+text-gray-300
+"
                       >
                         {item}
                       </span>
@@ -209,11 +213,13 @@ export default function Experience() {
                   {/* Arrow */}
                   <div className="mt-8">
                     <button
-                      className="
-                        flex items-center gap-3
-                        text-purple-400
-                        font-semibold
-                      "
+                    className="
+flex items-center gap-2
+text-purple-400
+font-semibold
+text-sm
+md:text-base
+"
                     >
                       Experience Details
                       <FaArrowRight />
@@ -230,10 +236,10 @@ export default function Experience() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="grid md:grid-cols-3 gap-8 mt-24"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 md:mt-24"
         >
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8 text-center">
-            <h3 className="text-5xl font-bold text-purple-400">
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 text-center">
+            <h3 className="text-4xl md:text-5xl font-bold text-purple-400">
               2+
             </h3>
             <p className="text-gray-400 mt-2">
@@ -241,8 +247,8 @@ export default function Experience() {
             </p>
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8 text-center">
-            <h3 className="text-5xl font-bold text-fuchsia-400">
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 text-center">
+            <h3 className="text-4xl md:text-5xl font-bold text-purple-400">
               1+
             </h3>
             <p className="text-gray-400 mt-2">
@@ -250,8 +256,8 @@ export default function Experience() {
             </p>
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8 text-center">
-            <h3 className="text-5xl font-bold text-blue-400">
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 text-center">
+            <h3  className="text-4xl md:text-5xl font-bold text-blue-400">
               100%
             </h3>
             <p className="text-gray-400 mt-2">

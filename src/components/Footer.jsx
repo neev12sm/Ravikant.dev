@@ -12,14 +12,26 @@ FaInstagram,
 export default function Footer() {
 return ( <footer
    id="contact"
-   className="relative bg-[#050816] overflow-hidden pt-32"
+   className="relative bg-[#050816] overflow-hidden pt-20 md:pt-32"
  >
-{/* Background Effects */} <div className="absolute top-0 left-0 w-[700px] h-[700px] bg-purple-600/20 blur-[220px]" />
+{/* Background Effects */} 
+<div className="absolute top-0 left-0 w-[250px] h-[250px] md:w-[700px] md:h-[700px] bg-purple-600/20 blur-[120px] md:blur-[220px]" />
 
-```
-  <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-fuchsia-600/20 blur-[220px]" />
+<div className="absolute bottom-0 right-0 w-[250px] h-[250px] md:w-[700px] md:h-[700px] bg-fuchsia-600/20 blur-[120px] md:blur-[220px]" />
 
-  <div className="w-[95%] mx-auto relative z-10">
+  <div className="
+rounded-[28px]
+md:rounded-[50px]
+overflow-hidden
+border
+border-white/10
+bg-gradient-to-br
+from-[#12001f]
+via-[#170028]
+to-[#050816]
+backdrop-blur-xl
+shadow-[0_0_100px_rgba(168,85,247,0.15)]
+">
     <div
       className="
         rounded-[50px]
@@ -35,26 +47,41 @@ return ( <footer
       "
     >
       {/* TOP SECTION */}
-      <div className="grid lg:grid-cols-2 gap-20 px-10 lg:px-24 py-20 lg:py-28">
+      <div className="
+grid
+grid-cols-1
+lg:grid-cols-2
+gap-12
+lg:gap-20
+px-6
+sm:px-8
+lg:px-24
+py-14
+lg:py-28
+">
         {/* LEFT */}
         <motion.div
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="uppercase tracking-[6px] text-purple-400 mb-6">
+          <p className="uppercase tracking-[3px] md:tracking-[6px] text-purple-400 mb-4 text-sm md:text-base text-center lg:text-left">
             Ready To Collaborate
           </p>
 
           <h5
-            className="
-              text-3xl
-              md:text-7xl
-              lg:text-[70px]
-              font-black
-              leading-[0.9]
-              text-white
-            "
+           className="
+text-4xl
+sm:text-5xl
+md:text-7xl
+lg:text-[70px]
+font-black
+leading-tight
+lg:leading-[0.9]
+text-white
+text-center
+lg:text-left
+"
           >
             LET'S
             <br />
@@ -65,22 +92,22 @@ return ( <footer
         </motion.div>
 
         {/* RIGHT */}
-        <div className="flex flex-col justify-center">
-          <p className="text-gray-400 text-lg leading-9">
+        <div className="flex flex-col justify-center text-center lg:text-left">
+          <p className="text-gray-400 text-base md:text-lg leading-8">
             Looking for a developer who can transform ideas into
             scalable and visually stunning web experiences?
             Let's create something extraordinary together.
           </p>
 
-          <h3 className="text-white text-3xl font-bold mt-10">
+          <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mt-8 break-all">
             neevsharma.dev@gmail.com
           </h3>
 
-          <div className="flex flex-wrap gap-5 mt-10">
+          <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mt-8">
             <a
               href="#contact"
               className="
-                px-8 py-4
+                w-full sm:w-auto px-6 py-3
                 rounded-full
                 bg-gradient-to-r
                 from-purple-600
@@ -100,7 +127,7 @@ return ( <footer
               href="/resume.pdf"
               download
               className="
-                px-8 py-4
+                w-full sm:w-auto px-6 py-3
                 rounded-full
                 border
                 border-purple-500
@@ -123,10 +150,20 @@ return ( <footer
       <div className="h-px bg-white/10" />
 
       {/* BOTTOM SECTION */}
-      <div className="grid lg:grid-cols-4 gap-12 px-10 lg:px-24 py-16">
+      <div className="
+grid
+grid-cols-1
+sm:grid-cols-2
+lg:grid-cols-4
+gap-10
+px-6
+sm:px-8
+lg:px-24
+py-14
+">
         {/* BRAND */}
         <div>
-          <h3 className="text-5xl font-black text-white">
+          <h3 className="text-4xl md:text-5xl font-black text-white">
             Ravikant
           </h3>
 
@@ -134,7 +171,7 @@ return ( <footer
             Full Stack Developer
           </p>
 
-          <p className="text-gray-400 mt-6 leading-8">
+          <p className="text-gray-400 mt-5 leading-7 text-sm md:text-base">
             Crafting modern digital experiences with React,
             Node.js, MongoDB and cutting-edge web technologies.
           </p>
@@ -146,7 +183,7 @@ return ( <footer
             Quick Links
           </h4>
 
-          <div className="space-y-4 text-gray-400">
+          <div className="space-y-3 text-gray-400 text-sm md:text-base">
             <a href="#home" className="block hover:text-purple-400">
               Home
             </a>
@@ -174,7 +211,7 @@ return ( <footer
             Contact
           </h4>
 
-          <div className="space-y-5">
+          <div className="space-y-4 text-sm md:text-base">
             <div>
               <p className="text-gray-500 text-sm">Email</p>
               <p className="text-white">
@@ -219,19 +256,21 @@ return ( <footer
                 }}
                 href="#"
                 className="
-                  w-14
-                  h-14
-                  rounded-full
-                  bg-white/5
-                  border
-                  border-white/10
-                  flex
-                  items-center
-                  justify-center
-                  text-white
-                  hover:bg-purple-600
-                  transition
-                "
+w-12
+h-12
+md:w-14
+md:h-14
+rounded-full
+bg-white/5
+border
+border-white/10
+flex
+items-center
+justify-center
+text-white
+hover:bg-purple-600
+transition
+"
               >
                 {icon}
               </motion.a>
@@ -248,27 +287,32 @@ return ( <footer
 
       {/* COPYRIGHT */}
     <div
-  className="
-    py-6
-    text-center
-    border-t
-    border-purple-500/20
-    bg-black/30
-    backdrop-blur-xl
-    transition-all
-    duration-500
-    hover:bg-purple-900/30
-  "
+ className="
+py-5
+md:py-6
+text-center
+border-t
+border-purple-500/20
+bg-black/30
+backdrop-blur-xl
+transition-all
+duration-500
+hover:bg-purple-900/30
+"
 >
   <p
     className="
-      text-gray-400
-      transition-all
-      duration-500
-      hover:text-purple-200
-      hover:scale-105
-      cursor-default
-    "
+text-gray-400
+text-xs
+sm:text-sm
+md:text-base
+px-4
+transition-all
+duration-500
+hover:text-purple-200
+hover:scale-105
+cursor-default
+"
   >
     © 2026 Ravikant Sharma • Crafted with ❤️ and lots of coffee ☕
   </p>

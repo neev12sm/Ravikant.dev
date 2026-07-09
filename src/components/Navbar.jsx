@@ -103,7 +103,7 @@ export default function Navbar({
                 text-xl
               "
             >
-              N
+              R
             </motion.div>
 
             <h1
@@ -113,7 +113,7 @@ export default function Navbar({
                   : "text-cyan-200"
               }`}
             >
-              Neev
+              Ravikant
             </h1>
           </div>
 

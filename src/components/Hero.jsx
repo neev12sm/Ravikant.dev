@@ -1,415 +1,414 @@
-import { motion } from "framer-motion";
-import profile from "../assets/neev.png";
 
+import { motion } from "framer-motion";
+import { Link } from "react-scroll";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaArrowRight,
+} from "react-icons/fa";
+import {
+  SiReact,
+  SiNodedotjs,
+  SiMongodb,
+  SiTailwindcss,
+} from "react-icons/si";
+
+import profile from "../assets/neev.png";
+const socialLinks = [
+  {
+    icon: FaGithub,
+    url: "https://github.com/neev12sm",
+  },
+  {
+    icon: FaLinkedin,
+    url: "https://www.linkedin.com/in/YOUR-LINKEDIN/",
+  },
+  {
+    icon: FaInstagram,
+    url: "https://www.instagram.com/YOUR-INSTAGRAM/",
+  },
+];
 export default function Hero() {
   return (
-    <section
-      id="home"
-      className="min-h-screen bg-gradient-to-br from-[#d8d0e8] via-[#cbbce9] to-[#6f2cff] p-3 sm:p-4 md:p-6 relative overflow-hidden"
-    >
-      {/* Ambient Glow */}
-      <div className="absolute right-[-250px] top-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#6d28ff] blur-[220px] opacity-70" />
-
-      {/* Main Container */}
-      <div className="relative w-full min-h-[850px] lg:h-[900px] overflow-hidden rounded-[25px] md:rounded-[40px] bg-[#050816] shadow-[0_25px_80px_rgba(0,0,0,0.4)]">
-
-        {/* Left Glow */}
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-700/40 blur-[180px]" />
-
-        {/* Right Glow */}
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/10 blur-[180px]" />
-
-        {/* Background Name */}
-   <h1
-  className="
-  absolute
-  top-25
-  left-1/2
-  -translate-x-1/2
-  font-black
-  uppercase
-  whitespace-nowrap
-  select-none
-  z-0
-  text-white/[0.12]
-
-  text-[30px]
-  sm:text-[60px]
-  md:text-[90px]
-  lg:text-[110px]
-  xl:text-[140px]
-  "
+  <section
+  id="home"
+  className="relative overflow-hidden bg-[#080812] min-h-screen text-white pt-12 lg:pt-12"
 >
-  RAVIKANT SHARMA
-</h1>
-
-        {/* Circles */}
- <div className="absolute inset-0 flex justify-center translate-y-[130px] md:translate-y-0">
-
-          <div
-            className="
-            absolute
-            w-[380px]
-            h-[380px]
-            sm:w-[500px]
-            sm:h-[500px]
-            md:w-[650px]
-            md:h-[650px]
-            lg:w-[800px]
-            lg:h-[800px]
-            rounded-full
-            bg-white/[0.03]
-          "
-          />
-
-          <div
-            className="
-            absolute
-            w-[280px]
-            h-[280px]
-            sm:w-[380px]
-            sm:h-[380px]
-            md:w-[500px]
-            md:h-[500px]
-            lg:w-[620px]
-            lg:h-[620px]
-            rounded-full
-            bg-white/[0.03]
-          "
-          />
-
-          <div
-            className="
-            absolute
-            w-[180px]
-            h-[180px]
-            sm:w-[260px]
-            sm:h-[260px]
-            md:w-[350px]
-            md:h-[350px]
-            lg:w-[450px]
-            lg:h-[450px]
-            rounded-full
-            bg-white/[0.03]
-          "
-          />
-
-        </div>
-
-        {/* Desktop Skill Cards */}
-
-        <motion.div
-          animate={{ x: [0, -15, 0] }}
-          transition={{ duration: 4, repeat: Infinity }}
-          className="
-          hidden lg:block
-          absolute
-          top-[35%]
-          left-[8%]
-          px-6 py-3
-          rounded-2xl
-          bg-cyan-500/20
-          border border-cyan-400/30
-          backdrop-blur-xl
-          text-white
-          font-medium
-          z-20
-        "
-        >
-          ⚛️ React.js Developer
-        </motion.div>
-
-        <motion.div
-          animate={{ x: [0, 15, 0] }}
-          transition={{ duration: 4, repeat: Infinity }}
-          className="
-          hidden lg:block
-          absolute
-          top-[35%]
-          right-[8%]
-          px-6 py-3
-          rounded-2xl
-          bg-purple-500/20
-          border border-purple-400/30
-          backdrop-blur-xl
-          text-white
-          font-medium
-          z-20
-        "
-        >
-          🚀 Full Stack Developer
-        </motion.div>
-
-        <motion.div
-          animate={{ x: [0, -15, 0] }}
-          transition={{ duration: 5, repeat: Infinity }}
-          className="
-          hidden lg:block
-          absolute
-          top-[55%]
-          left-[8%]
-          px-6 py-3
-          rounded-2xl
-          bg-green-500/20
-          border border-green-400/30
-          backdrop-blur-xl
-          text-white
-          font-medium
-          z-20
-        "
-        >
-          🟢 Node.js Developer
-        </motion.div>
-
-        <motion.div
-          animate={{ x: [0, 15, 0] }}
-          transition={{ duration: 5, repeat: Infinity }}
-          className="
-          hidden lg:block
-          absolute
-          top-[55%]
-          right-[8%]
-          px-6 py-3
-          rounded-2xl
-          bg-orange-500/20
-          border border-orange-400/30
-          backdrop-blur-xl
-          text-white
-          font-medium
-          z-20
-        "
-        >
-          🔥 MERN Stack Developer
-        </motion.div>
-
-        {/* Center Image */}
-<motion.img
-  src={profile}
-  alt="Neev Sharma"
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
-  className="
-  absolute
-  left-1/2
-  -translate-x-1/2
-
-  top-[170px]
-  sm:top-[180px]
-  md:top-[200px]
-  lg:bottom-0
-  lg:top-auto
-
-  h-[260px]
-  sm:h-[320px]
-  md:h-[500px]
-  lg:h-[760px]
-
-  object-contain
-  z-10
-  "
-/>
-
-
-                {/* Left Content - Desktop */}
-
-        <motion.div
-          initial={{ opacity: 0, x: -60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          className="
-          hidden lg:block
-          absolute
-          left-12
-          bottom-24
-          max-w-sm
-          z-20
-        "
-        >
-          <p className="text-white/90 text-lg leading-relaxed">
-            I create interfaces that blend function with emotion,
-            crafting digital experiences that feel intuitive,
-            seamless and meaningful.
-          </p>
-
-          <div className="flex gap-4 mt-8">
-
-            <button
-              className="
-              w-14 h-14 rounded-full
-              bg-gradient-to-r
-              from-purple-600
-              to-fuchsia-500
-              text-white
-              text-xl
-              hover:scale-110
-              transition
-            "
-            >
-              X
-            </button>
-
-            <button
-              className="
-              w-14 h-14 rounded-full
-              bg-gradient-to-r
-              from-purple-600
-              to-fuchsia-500
-              text-white
-              text-xl
-              hover:scale-110
-              transition
-            "
-            >
-              G
-            </button>
-
-            <button
-              className="
-              w-14 h-14 rounded-full
-              bg-gradient-to-r
-              from-purple-600
-              to-fuchsia-500
-              text-white
-              text-xl
-              hover:scale-110
-              transition
-            "
-            >
-              I
-            </button>
-
-          </div>
-        </motion.div>
-
-        {/* Right Content - Desktop */}
-
-        <motion.div
-          initial={{ opacity: 0, x: 60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          className="
-          hidden lg:block
-          absolute
-          right-12
-          bottom-24
-          max-w-sm
-          z-20
-          text-right
-        "
-        >
-          <p className="text-white/90 text-lg leading-relaxed">
-            Merging design thinking with development skills to build
-            modern web applications that look beautiful and perform
-            flawlessly.
-          </p>
-
-          <button
-            className="
-            mt-8
-            px-8
-            py-4
-            rounded-full
-            bg-gradient-to-r
-            from-purple-600
-            to-fuchsia-500
-            text-white
-            font-semibold
-            hover:scale-105
-            transition
-          "
-          >
-            Let's Talk →
-          </button>
-        </motion.div>
-
-        {/* Mobile / Tablet Layout */}
-
-        <div
-          className="
-          lg:hidden
-          relative
-          z-20
-          flex
-          flex-col
-          items-center
-          text-center
-          px-6
-          pt-[430px]
-          sm:pt-[520px]
-        "
-        >
-
-          {/* Mobile Skills */}
-
-          <div className="flex flex-wrap justify-center gap-3">
-
-            <div className="px-4 py-2 rounded-xl bg-cyan-500/20 border border-cyan-400/30 text-white text-sm">
-              ⚛️ React
-            </div>
-
-            <div className="px-4 py-2 rounded-xl bg-purple-500/20 border border-purple-400/30 text-white text-sm">
-              🚀 Full Stack
-            </div>
-
-            <div className="px-4 py-2 rounded-xl bg-green-500/20 border border-green-400/30 text-white text-sm">
-              🟢 Node
-            </div>
-
-            <div className="px-4 py-2 rounded-xl bg-orange-500/20 border border-orange-400/30 text-white text-sm">
-              🔥 MERN
-            </div>
-
-          </div>
-
-          <p className="text-white mt-8 text-lg leading-relaxed max-w-md">
-            I create interfaces that blend function with emotion,
-            crafting digital experiences that feel intuitive,
-            seamless and meaningful.
-          </p>
-
-          <div className="flex gap-4 mt-8">
-
-            <button className="w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-500 text-white">
-              X
-            </button>
-
-            <button className="w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-500 text-white">
-              G
-            </button>
-
-            <button className="w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-500 text-white">
-              I
-            </button>
-
-          </div>
-
-          <p className="text-white mt-12 text-lg leading-relaxed max-w-md">
-            Merging design thinking with development skills to build
-            modern web applications that look beautiful and perform
-            flawlessly.
-          </p>
-
-          <button
-            className="
-            mt-8
-            mb-12
-            px-8
-            py-4
-            rounded-full
-            bg-gradient-to-r
-            from-purple-600
-            to-fuchsia-500
-            text-white
-            font-semibold
-          "
-          >
-            Let's Talk →
-          </button>
-
-        </div>
+      {/* Background Glow */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 left-1/2 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-purple-600/20 blur-[180px]" />
+        <div className="absolute bottom-0 left-0 h-[350px] w-[350px] rounded-full bg-cyan-500/10 blur-[120px]" />
+        <div className="absolute top-0 right-0 h-[350px] w-[350px] rounded-full bg-fuchsia-500/10 blur-[140px]" />
 
       </div>
-    </section>
+
+      {/* Container */}
+
+       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+
+      <div
+className="
+flex
+flex-col
+items-center
+justify-center
+gap-12
+py-28
+
+lg:grid
+lg:grid-cols-3
+lg:items-center
+lg:gap-10
+lg:min-h-screen
+lg:py-0
+"
+>
+
+          {/* LEFT */}
+
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: .8 }}
+            className="order-2 lg:order-1 text-center lg:text-left"
+          >
+            <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black leading-tight">
+
+              Ravikant
+
+              <span className="block bg-gradient-to-r from-fuchsia-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                Sharma
+              </span>
+            </h2>
+           <h3 className="mt-4 text-lg sm:text-xl md:text-2xl font-semibold text-gray-300">
+              MERN Stack Developer
+            </h3>
+            <p className="mt-6 max-w-sm sm:max-w-md text-sm sm:text-base text-gray-400 leading-7 mx-auto lg:mx-0">
+              Passionate about building scalable web
+              applications with modern UI, clean code,
+              and exceptional user experiences.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
+
+              <Link
+  to="projects"
+  smooth={true}
+  duration={600}
+  offset={-110}
+  className="cursor-pointer rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-500 px-5 sm:px-7 py-3 sm:py-4 font-semibold hover:scale-105 transition"
+>
+  View Projects
+</Link>
+<Link
+  to="contact"
+  smooth={true}
+  duration={600}
+  offset={-110}
+  className="cursor-pointer flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-7 py-4 font-semibold backdrop-blur-xl hover:border-purple-500 transition"
+>
+  Let's Talk
+  <FaArrowRight />
+</Link>
+
+            </div>
+
+         <div className="mt-10 flex gap-4 justify-center lg:justify-start">
+  {socialLinks.map(({ icon: Icon, url }, index) => (
+    <a
+      key={index}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-xl hover:border-purple-500 hover:text-purple-400 transition"
+    >
+      <Icon />
+    </a>
+  ))}
+</div>
+
+          </motion.div>
+
+        
+{/* ===========================
+      CENTER SECTION
+=========================== */}
+
+<motion.div
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 1 }}
+
+className="
+order-1
+lg:order-2
+flex
+justify-center
+lg:justify-end
+items-center
+relative
+mt-6
+lg:mt-0
+lg:translate-x-80
+xl:translate-x-80
+"
+>
+  <div className="relative flex items-center justify-center">
+
+    {/* Cosmic Glow */}
+
+    <motion.div
+      animate={{
+        scale: [1, 1.15, 1],
+        opacity: [0.4, 0.8, 0.4],
+      }}
+      transition={{
+        duration: 4,
+        repeat: Infinity,
+      }}
+      className="absolute w-[320px] h-[320px] sm:w-[450px] sm:h-[450px] lg:w-[620px] lg:h-[620px] rounded-full bg-purple-500/20 blur-[120px]"
+    />
+
+    {/* Outer Ring */}
+
+    <motion.div
+      animate={{ rotate: 360 }}
+      transition={{
+        duration: 35,
+        repeat: Infinity,
+        ease: "linear",
+      }}
+     className="
+absolute
+w-[240px] h-[240px]
+sm:w-[320px] sm:h-[320px]
+md:w-[420px] md:h-[420px]
+lg:w-[520px] lg:h-[520px]
+rounded-full
+border
+border-purple-500/20
+shadow-[0_0_40px_rgba(168,85,247,.5)]
+"
+    />
+
+    {/* Energy Ring */}
+
+    <motion.div
+      animate={{ rotate: -360 }}
+      transition={{
+        duration: 18,
+        repeat: Infinity,
+        ease: "linear",
+      }}
+   className="
+absolute
+w-[220px] h-[220px]
+sm:w-[300px] sm:h-[300px]
+md:w-[390px] md:h-[390px]
+lg:w-[480px] lg:h-[480px]
+"
+    >
+      <div
+        className="absolute inset-0 rounded-full"
+        style={{
+          background:
+            "conic-gradient(from 0deg,#9333ea,#06b6d4,#ec4899,#9333ea)",
+          WebkitMask:
+            "radial-gradient(farthest-side,transparent calc(100% - 6px),black 0)",
+          mask:
+            "radial-gradient(farthest-side,transparent calc(100% - 6px),black 0)",
+        }}
+      />
+    </motion.div>
+
+    {/* Middle Ring */}
+
+    <motion.div
+      animate={{ rotate: 360 }}
+      transition={{
+        duration: 22,
+        repeat: Infinity,
+        ease: "linear",
+      }}
+      className="
+absolute
+w-[190px] h-[190px]
+sm:w-[270px] sm:h-[270px]
+md:w-[350px] md:h-[350px]
+lg:w-[430px] lg:h-[430px]
+rounded-full
+border
+border-cyan-400/20
+"
+    />
+
+    {/* Inner Ring */}
+
+    <motion.div
+      animate={{ rotate: -360 }}
+      transition={{
+        duration: 12,
+        repeat: Infinity,
+        ease: "linear",
+      }}
+    className="
+absolute
+w-[160px] h-[160px]
+sm:w-[240px] sm:h-[240px]
+md:w-[320px] md:h-[320px]
+lg:w-[380px] lg:h-[380px]
+rounded-full
+border
+border-fuchsia-500/20
+"
+    />
+
+    {/* Orbiting Glowing Balls */}
+
+    {[0, 60, 120, 180, 240, 300].map((deg, index) => (
+  <motion.div
+    key={index}
+    animate={{ rotate: 360 }}
+    transition={{
+      duration: 12,
+      repeat: Infinity,
+      ease: "linear",
+    }}
+    className="absolute w-[520px] h-[520px] hidden lg:block"
+  >
+    <div
+      className="absolute w-4 h-4 rounded-full bg-purple-400 shadow-[0_0_25px_#a855f7]"
+      style={{
+        top: "50%",
+        left: "50%",
+        transform: `rotate(${deg}deg) translateY(-260px)`,
+      }}
+    />
+  </motion.div>
+))}
+
+    {/* Glass Image Frame */}
+
+    <div className="relative flex items-center justify-center w-[170px] h-[170px]
+sm:w-[230px] sm:h-[230px]
+md:w-[300px] md:h-[300px]
+lg:w-[370px] lg:h-[370px] rounded-full border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_0_100px_rgba(168,85,247,.4)]">
+
+      {/* Animated Glow */}
+
+      <motion.div
+        animate={{
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+        }}
+        className="absolute inset-3 rounded-full bg-gradient-to-br from-purple-500/20 to-cyan-500/20 blur-xl"
+      />
+
+      {/* Image */}
+
+      <motion.img
+        src={profile}
+        alt="Neev Sharma"
+        animate={{
+          y: [0, -10, 0],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+        }}
+        whileHover={{
+          scale: 1.05,
+        }}
+        className="relative z-10 rounded-full object-cover border-[5px] border-purple-400/40 shadow-[0_0_60px_rgba(168,85,247,.7)] w-[135px] h-[135px]
+sm:w-[180px] sm:h-[180px]
+md:w-[240px] md:h-[240px]
+lg:w-[330px] lg:h-[330px]
+"
+      />
+    </div>
+
+    {/* Floating Nebula */}
+
+    <motion.div
+      animate={{
+        x: [0, 20, 0],
+        y: [0, -20, 0],
+      }}
+      transition={{
+        duration: 6,
+        repeat: Infinity,
+      }}
+      className="absolute left-0 top-10 w-16 h-16 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full bg-cyan-400/20 blur-3xl"
+    />
+
+    <motion.div
+      animate={{
+        x: [0, -15, 0],
+        y: [0, 15, 0],
+      }}
+      transition={{
+        duration: 5,
+        repeat: Infinity,
+      }}
+      className="absolute right-0 bottom-10 w-32 h-32 rounded-full bg-fuchsia-500/20 blur-3xl"
+    />
+
+  </div>
+</motion.div>
+
+{/* Close Grid */}
+</div>
+{/* Scroll Indicator */}
+<div className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center">
+  <span className="text-xs tracking-[4px] uppercase text-gray-500 mb-3">
+    Scroll
+  </span>
+  <motion.div
+    animate={{
+      y: [0, 15, 0],
+    }}
+    transition={{
+      repeat: Infinity,
+      duration: 1.5,
+    }}
+    className="w-7 h-12 rounded-full border border-white/20 flex justify-center"
+  >
+    <div className="w-1 h-3 rounded-full bg-gradient-to-b from-purple-400 to-cyan-400 mt-2"></div>
+  </motion.div>
+
+</div>
+{/* Floating Particles */}
+{Array.from({ length: 15 }).map((_, index) => (
+
+  <motion.span
+    key={index}
+    animate={{
+      y: [0, -25, 0],
+      opacity: [0.2, 1, 0.2],
+    }}
+    transition={{
+      repeat: Infinity,
+      duration: 3 + Math.random() * 3,
+      delay: index * 0.25,
+    }}
+    className="absolute rounded-full bg-purple-400/30 blur-sm"
+    style={{
+      width: `${4 + Math.random() * 5}px`,
+      height: `${4 + Math.random() * 5}px`,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+    }}
+  />
+))}
+</div>
+</section>
   );
 }
+
+
+
+
