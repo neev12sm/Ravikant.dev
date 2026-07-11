@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaBriefcase,
@@ -7,23 +8,33 @@ import {
 } from "react-icons/fa";
 
 export default function Experience() {
+  const [selectedExperience, setSelectedExperience] = useState(null);
   const experiences = [
-    {
-      company: "WorkLooper Consultants",
-      role: "Backend Developer",
-      duration: "Jan 2024 - Jun 2024",
-      icon: <FaCode />,
-      color: "from-purple-600 to-fuchsia-600",
-      description:
-        "Developed scalable backend applications using Node.js, Express.js and MongoDB. Built REST APIs, implemented authentication systems, optimized database queries and collaborated closely with frontend teams.",
-      achievements: [
-        "Built REST APIs",
-        "MongoDB Database Design",
-        "JWT Authentication",
-        "Backend Performance Optimization",
-      ],
-    },
+ {
+  company: "WorkLooper Consultants",
+  role: "Backend Developer",
+  duration: "Jan 2024 - Jun 2024",
+  icon: <FaCode />,
+  color: "from-purple-600 to-fuchsia-600",
+  description:
+    "Developed scalable backend applications using Node.js, Express.js and MongoDB.",
+  achievements: [
+    "Built REST APIs",
+    "MongoDB Database Design",
+    "JWT Authentication",
+    "Backend Performance Optimization",
+  ],
 
+  details: `
+• Designed scalable REST APIs using Express.js.
+• Implemented JWT authentication and role-based authorization.
+• Integrated MongoDB using Mongoose.
+• Improved API response time through query optimization.
+• Collaborated with frontend developers for seamless integration.
+• Fixed backend bugs and improved application stability.
+• Worked with Git and GitHub for version control.
+`,
+},
     {
       company: "Holistic People",
       role: "Business Development Executive (US Staffing)",
@@ -38,6 +49,13 @@ export default function Experience() {
         "End Client Coordination",
         "Candidate Submission & Screening",
       ],
+      details: `
+• Worked with Prime Vendors and End Clients.
+• Sourced candidates using Dice, LinkedIn and Indeed.
+• Scheduled interviews and coordinated with hiring managers.
+• Maintained ATS records and submission tracking.
+• Negotiated rates and followed up with consultants.
+`,
     },
   ];
 
@@ -212,18 +230,21 @@ text-gray-300
 
                   {/* Arrow */}
                   <div className="mt-8">
-                    <button
-                    className="
-flex items-center gap-2
-text-purple-400
-font-semibold
-text-sm
-md:text-base
-"
-                    >
-                      Experience Details
-                      <FaArrowRight />
-                    </button>
+                 <button
+  onClick={() => setSelectedExperience(exp)}
+  className="
+    flex items-center gap-2
+    text-purple-400
+    font-semibold
+    text-sm
+    md:text-base
+    hover:text-fuchsia-400
+    transition
+  "
+>
+  Experience Details
+  <FaArrowRight />
+</button>
                   </div>
                 </div>
               </motion.div>
@@ -266,6 +287,43 @@ md:text-base
           </div>
         </motion.div>
       </div>
+      {selectedExperience && (
+  <div
+    className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+    onClick={() => setSelectedExperience(null)}
+  >
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={(e) => e.stopPropagation()}
+      className="max-w-2xl w-full bg-[#0f172a] border border-purple-500/30 rounded-3xl p-8"
+    >
+      <h2 className="text-3xl font-bold text-white">
+        {selectedExperience.role}
+      </h2>
+
+      <p className="text-purple-400 mt-2">
+        {selectedExperience.company}
+      </p>
+
+      <p className="text-gray-400 mt-1">
+        {selectedExperience.duration}
+      </p>
+
+      <div className="mt-6 whitespace-pre-line text-gray-300 leading-8">
+        {selectedExperience.details}
+      </div>
+
+      <button
+        onClick={() => setSelectedExperience(null)}
+        className="mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white"
+      >
+        Close
+      </button>
+    </motion.div>
+  </div>
+)}
     </section>
   );
 }

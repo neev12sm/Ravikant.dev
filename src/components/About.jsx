@@ -163,7 +163,7 @@ lg:h-[420px]
                 "
               >
                 <h4 className="text-5xl font-bold text-purple-500">
-                  6+
+                  1+
                 </h4>
                 <p className="text-gray-400 mt-2">
                   Years Experience
