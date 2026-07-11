@@ -22,11 +22,11 @@ const socialLinks = [
   },
   {
     icon: FaLinkedin,
-    url: "https://www.linkedin.com/in/YOUR-LINKEDIN/",
+    url: "https://www.linkedin.com/in/ravikant-sharma-7b048b297",
   },
   {
     icon: FaInstagram,
-    url: "https://www.instagram.com/YOUR-INSTAGRAM/",
+    url: "https://www.instagram.com/neev_sm?igsh=cHNreXUyYWZnM2k5",
   },
 ];
 export default function Hero() {

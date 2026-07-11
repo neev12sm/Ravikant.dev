@@ -8,6 +8,24 @@ FaArrowRight,
 FaDownload,
 FaInstagram,
 } from "react-icons/fa";
+const socialLinks = [
+  {
+    icon: <FaGithub />,
+    url: "https://github.com/neev12sm",
+  },
+  {
+    icon: <FaLinkedinIn />,
+    url: "https://www.linkedin.com/in/ravikant-sharma-7b048b297",
+  },
+  {
+    icon: <FaInstagram />,
+    url: "https://www.instagram.com/neev_sm?igsh=cHNreXUyYWZnM2k5",
+  },
+  {
+    icon: <FaEnvelope />,
+    url: "mailto:ravikantsharma237mn@gmail.com",
+  },
+];
 
 export default function Footer() {
 return ( <footer
@@ -241,41 +259,38 @@ py-14
             Connect
           </h4>
 
-          <div className="flex flex-wrap gap-4">
-            {[
-              <FaGithub />,
-              <FaLinkedinIn />,
-              <FaInstagram />,
-              <FaEnvelope />,
-            ].map((icon, index) => (
-              <motion.a
-                key={index}
-                whileHover={{
-                  scale: 1.15,
-                  y: -5,
-                }}
-                href="#"
-                className="
-w-12
-h-12
-md:w-14
-md:h-14
-rounded-full
-bg-white/5
-border
-border-white/10
-flex
-items-center
-justify-center
-text-white
-hover:bg-purple-600
-transition
-"
-              >
-                {icon}
-              </motion.a>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-4">
+  {socialLinks.map((social, index) => (
+    <motion.a
+      key={index}
+      whileHover={{
+        scale: 1.15,
+        y: -5,
+      }}
+      href={social.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        w-12
+        h-12
+        md:w-14
+        md:h-14
+        rounded-full
+        bg-white/5
+        border
+        border-white/10
+        flex
+        items-center
+        justify-center
+        text-white
+        hover:bg-purple-600
+        transition
+      "
+    >
+      {social.icon}
+    </motion.a>
+  ))}
+</div>
 
           <div className="mt-8">
             <p className="text-gray-400">
