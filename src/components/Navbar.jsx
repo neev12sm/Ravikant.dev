@@ -248,18 +248,13 @@ damping:18
 top-0
 left-0
 h-screen
-w-[72%]
-max-w-[300px]
+w-[68%]
+max-w-[280px]
 z-50
 overflow-hidden
 rounded-r-[42px]
 backdrop-blur-3xl
 shadow-[0_0_60px_rgba(168,85,247,0.35)]
-${
-darkMode
-? "bg-[#080811]/90 border-r border-white/10"
-: "bg-gradient-to-b from-[#140021]/95 via-[#12002b]/95 to-[#070012]/95 border-r border-purple-500/30"
-}
       ${
         darkMode
           ? "bg-[#09090f]/95 border-r border-white/10"
@@ -297,8 +292,8 @@ darkMode
 
 </div>
 
-   <ul className="flex flex-col gap-1.5 px-5 py-5">
-  {navItems.map((item) => {
+<ul className="flex flex-col gap-2 px-3 py-4">
+    {navItems.map((item) => {
     const Icon = item.icon;
 
     return (
@@ -306,27 +301,85 @@ darkMode
         <a
           href={`#${item.name.toLowerCase()}`}
           onClick={() => setMenuOpen(false)}
-          className={`
-            flex
-            items-center
-            gap-3
-            w-fit
-            px-3
-            py-2
-            rounded-lg
-            transition-all
-            duration-300
-            hover:bg-white/10
-            hover:translate-x-1
-            ${
-              darkMode
-                ? "text-gray-300 hover:text-purple-400"
-                : "text-white hover:text-cyan-300"
-            }
-          `}
+      className={`
+group
+relative
+flex
+items-center
+gap-4
+mx-3
+h-10
+px-4
+rounded-full
+transition-all
+duration-300
+${
+  darkMode
+    ? `
+      text-gray-300
+      hover:text-white
+      hover:bg-gradient-to-r
+      hover:from-violet-500/15
+      hover:to-cyan-500/15
+    `
+    : `
+      text-white
+      hover:text-cyan-200
+      hover:bg-gradient-to-r
+      hover:from-violet-500/15
+      hover:to-cyan-500/15
+    `
+}
+`}
         >
-          <Icon size={20} />
-          <span>{item.name}</span>
+          {/* Left Indicator */}
+          <span
+            className="
+              absolute
+              left-0
+              top-1/2
+              -translate-y-1/2
+              h-0
+              w-1
+              rounded-r-full
+              bg-gradient-to-b
+              from-violet-500
+              to-cyan-400
+              transition-all
+              duration-300
+              group-hover:h-5
+            "
+          />
+
+          {/* Icon */}
+          <Icon
+            size={18}
+            className="
+              transition-all
+              duration-300
+              group-hover:scale-110
+            "
+          />
+
+          {/* Text */}
+          <span className="font-medium tracking-wide">
+            {item.name}
+          </span>
+
+          {/* Arrow */}
+          <span
+            className="
+              ml-auto
+              opacity-0
+              translate-x-3
+              transition-all
+              duration-300
+              group-hover:opacity-100
+              group-hover:translate-x-0
+            "
+          >
+            →
+          </span>
         </a>
       </li>
     );
