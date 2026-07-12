@@ -196,20 +196,16 @@ export default function Navbar({
             </button>
 
             {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className={`lg:hidden ${
-                darkMode
-                  ? "text-white"
-                  : "text-cyan-200"
-              }`}
-            >
-              {menuOpen ? (
-                <X size={26} />
-              ) : (
-                <Menu size={26} />
-              )}
-            </button>
+        {!menuOpen && (
+  <button
+    onClick={() => setMenuOpen(true)}
+    className={`lg:hidden ${
+      darkMode ? "text-white" : "text-cyan-200"
+    }`}
+  >
+    <Menu size={26} />
+  </button>
+)}
           </div>
         </div>
 
@@ -227,11 +223,43 @@ export default function Navbar({
 
     {/* Sidebar */}
     <motion.div
-      initial={{ x: "-100%" }}
-      animate={{ x: 0 }}
-      exit={{ x: "-100%" }}
-      transition={{ duration: 0.35 }}
-      className={`fixed top-0 left-0 h-screen w-[80%] max-w-[320px] z-50 lg:hidden
+    initial={{
+x:-350,
+opacity:0
+}}
+
+animate={{
+x:0,
+opacity:1
+}}
+
+exit={{
+x:-350,
+opacity:0
+}}
+
+transition={{
+type:"spring",
+stiffness:90,
+damping:18
+}}  
+    
+      className={`fixed
+top-0
+left-0
+h-screen
+w-[72%]
+max-w-[300px]
+z-50
+overflow-hidden
+rounded-r-[42px]
+backdrop-blur-3xl
+shadow-[0_0_60px_rgba(168,85,247,0.35)]
+${
+darkMode
+? "bg-[#080811]/90 border-r border-white/10"
+: "bg-gradient-to-b from-[#140021]/95 via-[#12002b]/95 to-[#070012]/95 border-r border-purple-500/30"
+}
       ${
         darkMode
           ? "bg-[#09090f]/95 border-r border-white/10"
@@ -239,42 +267,71 @@ export default function Navbar({
       }
       backdrop-blur-2xl`}
     >
-      <div className="flex items-center justify-between p-6 border-b border-white/10">
-        <h2 className="text-2xl font-bold text-white">
-          Ravikant
-        </h2>
+    <div className="relative flex items-center justify-between px-6 py-7 border-b border-white/10">
 
-        <button
+    <div className="flex items-center gap-3">
+
+        <div className="w-12 h-12 rounded-full bg-gradient-to-r from-violet-500 to-cyan-400 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+            R
+        </div>
+
+        <div>
+            <h2 className="text-white font-bold text-2xl">
+                Ravikant
+            </h2>
+
+            <p className="text-gray-400 text-xs">
+                MERN Stack Developer
+            </p>
+
+        </div>
+
+    </div>
+
+    <button
+        onClick={() => setMenuOpen(false)}
+        className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/10 transition"
+    >
+        <X size={20}/>
+    </button>
+
+</div>
+
+   <ul className="flex flex-col gap-1.5 px-5 py-5">
+  {navItems.map((item) => {
+    const Icon = item.icon;
+
+    return (
+      <li key={item.name}>
+        <a
+          href={`#${item.name.toLowerCase()}`}
           onClick={() => setMenuOpen(false)}
-          className="text-white"
+          className={`
+            flex
+            items-center
+            gap-3
+            w-fit
+            px-3
+            py-2
+            rounded-lg
+            transition-all
+            duration-300
+            hover:bg-white/10
+            hover:translate-x-1
+            ${
+              darkMode
+                ? "text-gray-300 hover:text-purple-400"
+                : "text-white hover:text-cyan-300"
+            }
+          `}
         >
-          <X size={26} />
-        </button>
-      </div>
-
-      <ul className="flex flex-col gap-7 px-8 py-10">
-        {navItems.map((item) => {
-          const Icon = item.icon;
-
-          return (
-            <li key={item.name}>
-              <a
-                href={`#${item.name.toLowerCase()}`}
-                onClick={() => setMenuOpen(false)}
-                className={`flex items-center gap-4 text-lg transition
-                ${
-                  darkMode
-                    ? "text-gray-300 hover:text-purple-400"
-                    : "text-white hover:text-cyan-300"
-                }`}
-              >
-                <Icon size={22} />
-                {item.name}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+          <Icon size={20} />
+          <span>{item.name}</span>
+        </a>
+      </li>
+    );
+  })}
+</ul>
     </motion.div>
   </>
 )}

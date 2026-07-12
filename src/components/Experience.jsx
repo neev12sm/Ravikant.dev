@@ -289,7 +289,19 @@ text-gray-300
       </div>
       {selectedExperience && (
   <div
-    className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+      className="
+fixed
+inset-0
+z-50
+flex
+items-center
+justify-center
+bg-black/70
+backdrop-blur-sm
+p-3
+sm:p-4
+overflow-y-auto
+"
     onClick={() => setSelectedExperience(null)}
   >
     <motion.div
@@ -297,9 +309,22 @@ text-gray-300
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0 }}
       onClick={(e) => e.stopPropagation()}
-      className="max-w-2xl w-full bg-[#0f172a] border border-purple-500/30 rounded-3xl p-8"
+   className="
+w-full
+max-w-2xl
+max-h-[90vh]
+overflow-y-auto
+bg-[#0f172a]
+border
+border-purple-500/30
+rounded-3xl
+p-5
+sm:p-6
+md:p-8
+mx-4
+"   
     >
-      <h2 className="text-3xl font-bold text-white">
+    <h2 className="text-2xl sm:text-3xl font-bold text-white">
         {selectedExperience.role}
       </h2>
 
@@ -311,13 +336,34 @@ text-gray-300
         {selectedExperience.duration}
       </p>
 
-      <div className="mt-6 whitespace-pre-line text-gray-300 leading-8">
+      <div
+  className="
+mt-6
+whitespace-pre-line
+text-gray-300
+leading-7
+text-sm
+sm:text-base
+"
+>
         {selectedExperience.details}
       </div>
 
       <button
         onClick={() => setSelectedExperience(null)}
-        className="mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white"
+        className="
+mt-8
+w-full
+sm:w-auto
+px-6
+py-3
+rounded-full
+bg-gradient-to-r
+from-purple-600
+to-fuchsia-600
+text-white
+font-semibold
+"
       >
         Close
       </button>
