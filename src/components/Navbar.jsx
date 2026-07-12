@@ -367,12 +367,14 @@ ${
 
           {/* Icon */}
           <Icon
-            size={18}
-            className="
-              transition-all
-              duration-300
-              group-hover:scale-110
-            "
+          size={18}
+          strokeWidth={2}
+          className="
+          flex-shrink-0
+          transition-all
+          duration-300
+          group-hover:scale-110
+          "
           />
 
           {/* Text */}
