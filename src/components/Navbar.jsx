@@ -25,8 +25,17 @@ export default function Navbar({
     document.body.style.overflow = "auto";
   }
 
+  const handleResize = () => {
+    if (window.innerWidth >= 1024) {
+      setMenuOpen(false);
+    }
+  };
+
+  window.addEventListener("resize", handleResize);
+
   return () => {
     document.body.style.overflow = "auto";
+    window.removeEventListener("resize", handleResize);
   };
 }, [menuOpen]);
 
@@ -59,9 +68,14 @@ export default function Navbar({
           ${
             darkMode
               ? `
-                border border-white/10
-                bg-black/30
-                shadow-[0_10px_40px_rgba(0,0,0,0.5)]
+          border border-violet-400/20
+bg-gradient-to-r
+from-[#0A0F1F]/90
+via-[#1E1B4B]/85
+to-[#4C1D95]/80
+shadow-[0_15px_40px_rgba(76,29,149,0.28),0_0_60px_rgba(99,102,241,0.15)]
+              
+               
               `
               : `
                 border border-purple-400/30
