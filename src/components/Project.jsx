@@ -12,22 +12,22 @@ import project5 from "../assets/project5.png";
 export default function Projects() {
   const projects = [
     {
-      title: "Expense Tracker",
+      title: "Seo Analyzer",
       image: project1,
       description:
-        "A full-stack expense tracking application with authentication and analytics.",
+        "Developed an SEO auditing platform that checks website health, performance, and optimization metrics.",
       tech: ["React", "Node.js", "MongoDB"],
-      demo: "#",
-      github: "#",
+      demo: "https://seo-analyzer-topaz.vercel.app/",
+      github: "https://github.com/neev12sm/seo-analyzer",
     },
     {
-      title: "Netflix Clone",
+      title: "TextUtils Website",
       image: project2,
       description:
-        "Netflix-inspired movie streaming platform using TMDB API.",
-      tech: ["React", "Firebase", "TMDB API"],
-      demo: "#",
-      github: "#",
+        "A React-based text utility application for formatting, editing, and analyzing text efficiently.",
+      tech: ["React"],
+      demo: "https://text-utils-one-phi.vercel.app/",
+      github: "https://github.com/neev12sm/Text_Utils",
     },
     {
       title: "Portfolio Website",
