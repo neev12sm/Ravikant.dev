@@ -44,8 +44,8 @@ export default function Projects() {
       description:
         "Property listing and filtering platform with responsive UI.",
       tech: ["React", "Node.js", "MongoDB"],
-      demo: "#",
-      github: "#",
+      demo: "https://real-state-lemon-two.vercel.app/",
+      github: "https://github.com/neev12sm/Real_State",
     },
     {
       title: "Dream Nest",
