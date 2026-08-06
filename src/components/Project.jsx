@@ -29,15 +29,15 @@ export default function Projects() {
       demo: "https://text-utils-one-phi.vercel.app/",
       github: "https://github.com/neev12sm/Text_Utils",
     },
-    {
-      title: "Portfolio Website",
-      image: project3,
-      description:
-        "Modern animated portfolio built with React, Tailwind and Framer Motion.",
-      tech: ["React", "Tailwind", "Framer Motion"],
-      demo: "#",
-      github: "#",
-    },
+    // {
+    //   title: "Portfolio Website",
+    //   image: project3,
+    //   description:
+    //     "Modern animated portfolio built with React, Tailwind and Framer Motion.",
+    //   tech: ["React", "Tailwind", "Framer Motion"],
+    //   demo: "#",
+    //   github: "#",
+    // },
     {
       title: "Real Estate",
       image: project4,
@@ -47,15 +47,15 @@ export default function Projects() {
       demo: "https://real-state-lemon-two.vercel.app/",
       github: "https://github.com/neev12sm/Real_State",
     },
-    {
-      title: "Dream Nest",
-      image: project5,
-      description:
-        "Modern hotel booking platform with advanced search features.",
-      tech: ["React", "Express", "MySQL"],
-      demo: "#",
-      github: "#",
-    },
+    // {
+    //   title: "Dream Nest",
+    //   image: project5,
+    //   description:
+    //     "Modern hotel booking platform with advanced search features.",
+    //   tech: ["React", "Express", "MySQL"],
+    //   demo: "#",
+    //   github: "#",
+    // },
   ];
 
   return (
